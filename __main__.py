@@ -43,7 +43,7 @@ def recieve_message():
 	url = args[1]
 	if url[0:24] != "https://slack-files.com/":
 		print(url[0:24])
-		return("Error, not a public slack file")
+		return("Error, not a public slack file, please click the ... over your snippet (NOT POST, the snippet itself) and use the public link")
 	if lang not in supportedLangCodes:
 		return("Error, wrong language or unsupported. Please refer to the supported language list here: api.lodash.xyz/langs" + str(lang))
 
