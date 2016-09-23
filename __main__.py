@@ -10,7 +10,7 @@ supportedLangCodes = ["cpp","python2","python3"]
 
 
 #Getting keys
-fin = open('hackerrankApiKey.txt','r')
+fin = open('hackerrankApiKey.key','r')
 APIkey = fin.readline()
 print(APIkey)
 print("Hackerrank api key is " + str(APIkey))
@@ -45,15 +45,14 @@ def recieve_message():
 	print(userCode)
 
 	hackRequest = {
-	data2 = {
-	"source":str(userCode),
-	"lang":5,
-	"testcases": '["1","2"]', #TODO MAKE REAL TESTCASES BY USER
-	"api_key":str(APIkey)
+		"source":str(userCode),
+		"lang":5,
+		"testcases": '["1","2"]', #TODO MAKE REAL TESTCASES BY USER
+		"api_key":str(APIkey)
 	}
 
 	postback = requests.post("http://api.hackerrank.com/checker/submission.json",data = hackRequest)
-	return(postback.text.stdout)
+	return(postback.text)
 	return("working")
 #curl -sX POST api.hackerrank.com/checker/submission.json -d 'source=print 1&lang=5&testcases=["1"]&api_key=hackerrank|1160459-992|7e7802c25e5a971b56773cc6443fc31168f6e664'                                                                                                                                            
 	#hackerrank|1160459-992|7e7802c25e5a971b56773cc6443fc31168f6e664
