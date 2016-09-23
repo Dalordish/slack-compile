@@ -17,8 +17,8 @@ fin.close()
 #Getting languages
 
 langReq = requests.get("http://api.hackerrank.com/checker/languages.json")
-supportedLangCodes = langReq.json()['codes']
-
+supportedLangCodes = langReq.json()
+print(supportedLangCodes)
 
 
 
