@@ -7,6 +7,15 @@ portNum = 5000 # initialise variables
 opener = urllib.request.FancyURLopener({})
 supportedLangCodes = ["cpp","python2","python3"]
 
+
+
+#Getting keys
+fin = open('hackerrankApiKey.txt','r')
+APIkey = fin.readline()
+print(APIkey)
+print("Hackerrank api key is " + str(APIkey))
+fin.close()
+
 @app.route('/test', methods = ['POST'])
 def recieve_test():
     print(request)
@@ -34,7 +43,17 @@ def recieve_message():
 	soup = BeautifulSoup(opener.open(url),'html.parser')
 	userCode = soup.body.div.div.div.text
 	print(userCode)
-	requests.post("http://api.hackerrank.com/checker/submission.json",data = JSON)
+
+	hackRequest = {
+	data2 = {
+	"source":str(userCode),
+	"lang":5,
+	"testcases": '["1","2"]', #TODO MAKE REAL TESTCASES BY USER
+	"api_key":str(APIkey)
+	}
+
+	postback = requests.post("http://api.hackerrank.com/checker/submission.json",data = hackRequest)
+	return(postback.text.stdout)
 	return("working")
 #curl -sX POST api.hackerrank.com/checker/submission.json -d 'source=print 1&lang=5&testcases=["1"]&api_key=hackerrank|1160459-992|7e7802c25e5a971b56773cc6443fc31168f6e664'                                                                                                                                            
 	#hackerrank|1160459-992|7e7802c25e5a971b56773cc6443fc31168f6e664
