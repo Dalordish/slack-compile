@@ -25,7 +25,7 @@ def recieve_message():
 
 	#Passed all checks
 	userCode = requests.get(url)
-	print("userCode")
+	print(userCode)
 	return("working")
 '''
 pseudo
