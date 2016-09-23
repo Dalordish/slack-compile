@@ -1,8 +1,9 @@
 from flask import Flask, jsonify, request
-import requests
+import urllib.request
+from bs4 import BeautifulSoup
 app = Flask(__name__)
 portNum = 5000 # initialise variables
-
+opener = urllib.request.FancyURLopener({})
 supportedLangCodes = ["cpp","python2","python3"]
 
 @app.route('/in', methods = ['POST'])
@@ -14,7 +15,7 @@ def recieve_message():
 	print(request.form['text'])
 	args = request.form['text'].split(' ')
 	if len(args) != 2:
-		return("Error, Correct Syntax is /compile cpp publicslacksnippeturl.com")
+		return("Error, Correct Syntax is /compile cpp publicslacksnippeturl.com")	
 	lang = args[0]
 	url = args[1]
 	if url[0:24] != "https://slack-files.com/":
@@ -24,7 +25,8 @@ def recieve_message():
 		return("Error, wrong language or unsupported" + str(lang))
 
 	#Passed all checks
-	userCode = requests.get(url).text
+	soup = BeautifulSoup(opener.open(url),'html.parser')
+	userCode = soup.body.div.div.div.text
 	print(userCode)
 	return("working")
 '''
