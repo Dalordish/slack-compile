@@ -16,8 +16,8 @@ def recieve_message():
 		return("Error, Correct Syntax is /compile cpp publicslacksnippeturl.com")
 	lang = args[0]
 	url = args[1]
-	if url[0:23] != "https://slack-files.com/":
-		print(url[0:23])
+	if url[0:24] != "https://slack-files.com/":
+		print(url[0:24])
 		return("Error, not a public slack file")
 	print(args[0])
 	print(args[1])
