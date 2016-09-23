@@ -26,7 +26,7 @@ def recieve_message():
 	print("form")
 #	print(request.form['user_id'])
 #	print(request.form['user_name'])
-
+	print(request.form['response_url'])
 	print(request.form['text'])
 	args = request.form['text'].split(' ')
 	if len(args) != 2:
@@ -53,6 +53,7 @@ def recieve_message():
 
 	postback = requests.post("http://api.hackerrank.com/checker/submission.json",data = hackRequest)
 	return(postback.text)
+	print(postback.text)
 	return("working")
 #curl -sX POST api.hackerrank.com/checker/submission.json -d 'source=print 1&lang=5&testcases=["1"]&api_key=hackerrank|1160459-992|7e7802c25e5a971b56773cc6443fc31168f6e664'                                                                                                                                            
 	#hackerrank|1160459-992|7e7802c25e5a971b56773cc6443fc31168f6e664
