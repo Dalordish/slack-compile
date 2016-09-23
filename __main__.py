@@ -24,7 +24,7 @@ def recieve_message():
 		return("Error, wrong language or unsupported" + str(lang))
 
 	#Passed all checks
-	userCode = requests.get(url)
+	userCode = requests.get(url).text
 	print(userCode)
 	return("working")
 '''
