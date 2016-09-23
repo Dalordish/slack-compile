@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 import urllib.request
 from bs4 import BeautifulSoup
 import requests
+import json
 app = Flask(__name__)
 portNum = 5000 # initialise variables
 opener = urllib.request.FancyURLopener({})
@@ -54,7 +55,7 @@ def recieve_message():
 
 	finalResponse = {
     "response_type": "in_channel",
-    "text": postback.text
+    "text": str(postback.text)
 	}
 
 	print(finalResponse)
