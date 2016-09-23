@@ -5,8 +5,8 @@ portNum = 5000 # initialise variables
 
 @app.route('/in', methods = ['POST'])
 def recieve_message():
-	print(request.form)
-	return(request.form)
+	print(request.jsonify)
+	return(request.jsonify)
 
 '''
 pseudo
