@@ -52,7 +52,7 @@ def recieve_message():
 
 	hackRequest = {
 		"source":str(userCode),
-		"lang":str(supportedLangCodes['lang']),
+		"lang":str(supportedLangCodes[lang]),
 		"testcases": '["1","2"]', #TODO MAKE REAL TESTCASES BY USER
 		"api_key":str(APIkey)
 	}
