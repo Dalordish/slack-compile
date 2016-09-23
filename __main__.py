@@ -6,9 +6,9 @@ portNum = 5000 # initialise variables
 @app.route('/in', methods = ['POST'])
 def recieve_message():
 	print("form")
-	print(request.form.user_id)
-	print(request.form.user_name)
-	print(request.form.text)
+	print(request['form.user_id'])
+	print(request.['form.user_name'])
+	print(request.['form.text'])
 	return("working")
 '''
 pseudo
