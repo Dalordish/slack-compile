@@ -60,7 +60,7 @@ def recieve_message():
 
 	print(finalResponse)
 
-	finalRequest = requests.post(str(request.form['response_url']), data= jsonify(finalResponse))
+	finalRequest = requests.post(str(request.form['response_url']), data= json.dumps(finalResponse))
 	print(finalRequest.raise_for_status)
 	print(finalRequest.text)
 	return("Compiling...")
