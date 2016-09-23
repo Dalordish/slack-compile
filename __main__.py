@@ -10,8 +10,9 @@ supportedLangCodes = ["cpp","python2","python3"]
 @app.route('/test', methods = ['POST'])
 def recieve_test():
     print(request)
-    print(request.text)
-    print(request.data)
+    print(request.form.text)
+    print(request.form.data)
+    return("asadf")
 @app.route('/in', methods = ['POST'])
 def recieve_message():
 	print("form")
