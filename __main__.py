@@ -6,7 +6,6 @@ import json
 app = Flask(__name__)
 portNum = 5000 # initialise variables
 opener = urllib.request.FancyURLopener({})
-supportedLangCodes = ["cpp","python2","python3"]
 
 #Getting keys
 fin = open('hackerrankApiKey.key','r')
@@ -14,6 +13,15 @@ APIkey = fin.readline().strip('\n')
 print(APIkey)
 print("Hackerrank api key is " + str(APIkey))
 fin.close()
+
+#Getting languages
+
+langReq = requests.get("http://api.hackerrank.com/checker/languages.json")
+
+supportedLangCodes = json.loads(langReq.json)['codes']
+
+
+
 
 @app.route('/test', methods = ['POST'])
 def recieve_test():
@@ -45,7 +53,7 @@ def recieve_message():
 
 	hackRequest = {
 		"source":str(userCode),
-		"lang":5,
+		"lang":str(supportedLangCodes['lang']),
 		"testcases": '["1","2"]', #TODO MAKE REAL TESTCASES BY USER
 		"api_key":str(APIkey)
 	}
