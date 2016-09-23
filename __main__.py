@@ -53,7 +53,7 @@ def recieve_message():
 	postback = requests.post("http://api.hackerrank.com/checker/submission.json",data = hackRequest)
 	print(postback)
 	print(json.loads(postback.text))
-	print(json.loads(postback.text)['stdout'])
+	print(json.loads(postback.text)['result']['stdout'])
 
 	finalResponse = {
     "response_type": "in_channel",
