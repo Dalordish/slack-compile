@@ -7,8 +7,6 @@ portNum = 5000 # initialise variables
 opener = urllib.request.FancyURLopener({})
 supportedLangCodes = ["cpp","python2","python3"]
 
-
-
 #Getting keys
 fin = open('hackerrankApiKey.key','r')
 APIkey = fin.readline()
@@ -52,8 +50,12 @@ def recieve_message():
 	}
 
 	postback = requests.post("http://api.hackerrank.com/checker/submission.json",data = hackRequest)
-	return(postback.text)
+	# requests.post(request.form['response_url'], data= json stuff)
+	print("request")
+	print(hackRequest)
 	print(postback.text)
+	return(postback.text)
+	
 	return("working")
 #curl -sX POST api.hackerrank.com/checker/submission.json -d 'source=print 1&lang=5&testcases=["1"]&api_key=hackerrank|1160459-992|7e7802c25e5a971b56773cc6443fc31168f6e664'                                                                                                                                            
 	#hackerrank|1160459-992|7e7802c25e5a971b56773cc6443fc31168f6e664

@@ -2,7 +2,7 @@ import requests
 import json
 data = "source=print 1&lang=5&testcases=['1']&api_key=hackerrank|1160459-992|7e7802c25e5a971b56773cc6443fc31168f6e664"
 
-fin = open('hackerrankApiKey.txt','r')
+fin = open('hackerrankApiKey.key','r')
 key = fin.readline()
 print(key)
 fin.close()
