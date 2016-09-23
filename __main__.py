@@ -9,7 +9,7 @@ supportedLangCodes = ["cpp","python2","python3"]
 
 #Getting keys
 fin = open('hackerrankApiKey.key','r')
-APIkey = fin.readline()
+APIkey = fin.readline().strip('\n')
 print(APIkey)
 print("Hackerrank api key is " + str(APIkey))
 fin.close()
