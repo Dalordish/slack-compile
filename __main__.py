@@ -56,7 +56,7 @@ def recieve_message():
 	print(postbackJSON)
 	finalResponse = {
     "response_type": "in_channel",
-    "text": postbackJSON['result']['stdout']
+    "text": str(postbackJSON['result']['stdout'])
 	}
 	print("FINAL RESPONSE")
 	print(finalResponse)
