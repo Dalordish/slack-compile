@@ -3,6 +3,7 @@ import requests
 app = Flask(__name__)
 portNum = 5000 # initialise variables
 
+supportedLangCodes = ["cpp","python2","python3"]
 
 @app.route('/in', methods = ['POST'])
 def recieve_message():
@@ -19,8 +20,8 @@ def recieve_message():
 	if url[0:24] != "https://slack-files.com/":
 		print(url[0:24])
 		return("Error, not a public slack file")
-	print(args[0])
-	print(args[1])
+	if lang not in supportedLangCodes:
+		return("Error, wrong language or unsupported" + str(lang))
 
 	return("working")
 '''
