@@ -14,6 +14,11 @@ def recieve_message():
 	args = request.form['text'].split(' ')
 	if len(args) != 2:
 		return("Error, Correct Syntax is /compile cpp publicslacksnippeturl.com")
+	lang = args[0]
+	url = args[1]
+	if url[0:23] != "https://slack-files.com/":
+		print(url[0:23])
+		return("Error, not a public slack file")
 	print(args[0])
 	print(args[1])
 
@@ -30,3 +35,6 @@ send to url
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=portNum)
+
+
+
