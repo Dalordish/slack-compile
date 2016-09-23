@@ -59,7 +59,9 @@ def recieve_message():
 
 	print(finalResponse)
 
-	requests.post(str(request.form['response_url']), data= finalResponse)
+	finalRequest = requests.post(str(request.form['response_url']), data= finalResponse)
+	print(finalRequest.raise_for_status)
+	print(finalRequest.text)
 	return("Compiling...")
 #curl -sX POST api.hackerrank.com/checker/submission.json -d 'source=print 1&lang=5&testcases=["1"]&api_key=hackerrank|1160459-992|7e7802c25e5a971b56773cc6443fc31168f6e664'                                                                                                                                            
 	#hackerrank|1160459-992|7e7802c25e5a971b56773cc6443fc31168f6e664
