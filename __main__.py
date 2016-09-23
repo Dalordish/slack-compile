@@ -1,11 +1,15 @@
 from flask import Flask, jsonify, request
 import urllib.request
 from bs4 import BeautifulSoup
+import requests
 app = Flask(__name__)
 portNum = 5000 # initialise variables
 opener = urllib.request.FancyURLopener({})
 supportedLangCodes = ["cpp","python2","python3"]
 
+@app.route('/test', methods = ['POST'])
+def recieve_message():
+    print(request)
 @app.route('/in', methods = ['POST'])
 def recieve_message():
 	print("form")
@@ -28,7 +32,10 @@ def recieve_message():
 	soup = BeautifulSoup(opener.open(url),'html.parser')
 	userCode = soup.body.div.div.div.text
 	print(userCode)
+	requests.post("http://api.hackerrank.com/checker/submission.json",data = JSON)
 	return("working")
+#curl -sX POST api.hackerrank.com/checker/submission.json -d 'source=print 1&lang=5&testcases=["1"]&api_key=hackerrank|1160459-992|7e7802c25e5a971b56773cc6443fc31168f6e664'                                                                                                                                            
+	#hackerrank|1160459-992|7e7802c25e5a971b56773cc6443fc31168f6e664
 '''
 pseudo
 
