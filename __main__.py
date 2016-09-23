@@ -17,11 +17,13 @@ fin.close()
 #Getting languages
 
 langReq = requests.get("http://api.hackerrank.com/checker/languages.json")
-supportedLangCodes = langReq.json()['languages']['codes']
+langReqJSON = langReq.json()['languages']
+supportedLangCodes = langReqJSON['codes']
 print(supportedLangCodes)
 
-
-
+@app.route('/langs', methods = ['GET'])
+def serve_msg():
+	return(jsonify(langReqJSON['names']))
 @app.route('/test', methods = ['POST'])
 def recieve_test():
     print(request)
@@ -43,7 +45,7 @@ def recieve_message():
 		print(url[0:24])
 		return("Error, not a public slack file")
 	if lang not in supportedLangCodes:
-		return("Error, wrong language or unsupported" + str(lang))
+		return("Error, wrong language or unsupported. Please refer to the supported language list here: api.lodash.xyz/langs" + str(lang))
 
 	#Passed all checks
 	soup = BeautifulSoup(opener.open(url),'html.parser')
