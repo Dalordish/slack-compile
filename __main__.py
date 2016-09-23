@@ -8,7 +8,7 @@ opener = urllib.request.FancyURLopener({})
 supportedLangCodes = ["cpp","python2","python3"]
 
 @app.route('/test', methods = ['POST'])
-def recieve_message():
+def recieve_test():
     print(request)
 @app.route('/in', methods = ['POST'])
 def recieve_message():
