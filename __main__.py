@@ -23,6 +23,9 @@ def recieve_message():
 	if lang not in supportedLangCodes:
 		return("Error, wrong language or unsupported" + str(lang))
 
+	#Passed all checks
+	userCode = requests.get(url)
+	print("userCode")
 	return("working")
 '''
 pseudo
