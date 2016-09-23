@@ -13,7 +13,7 @@ def recieve_message():
 	print(request.form['text'])
 	args = request.form['text'].split(' ')
 	if args.len() != 2:
-		return("Error, Correct Syntax is /compile cpp publicslacksnippeturl.com)
+		return("Error, Correct Syntax is /compile cpp publicslacksnippeturl.com")
 	print(args[0])
 	print(args[1])
 
