@@ -21,8 +21,8 @@ Under Slack's custom integrations, locate "slash commands", and enter in <yourur
 
 Things that I should do at some stage to complete the project, or that you can help me out with
 
-Implement stdout errors
-Implement proper test cases
-Clean and modularise code
+ - Implement stdout errors
+ - Implement proper test cases
+ - Clean and modularise code
 
 Host permanently and deploy to slack's app store
