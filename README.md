@@ -1,6 +1,6 @@
 # slack-compile
 
-* This project is no longer being maintained, and is defunct as the hackerrank api has now been depricated. *
+*This project is no longer being maintained, and is defunct as the hackerrank api has now been depricated.*
 
 A Python project with Flask for a /compile &lt;lang>  &lt;snippet-url> command. Also my first slack integration
 
